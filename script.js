@@ -9,30 +9,6 @@ data.map((item) => {
   newCard.setAttribute("class", "card");
   newCard.setAttribute("id", item.id);
   newCard.innerHTML = `<h1>${item.first_name} ${item.last_name}</h1><br><h2>${item.email}</h2>`;
-  // newCard.addEventListener("touchend", (e) => {
-  //   if (e.target.className !== "btn view-btn") {
-  //     const me = e.currentTarget;
-  //     if (me.className === "card") {
-  //       me.setAttribute("class", "card active");
-  //     } else {
-  //       me.setAttribute("class", "card");
-  //     }
-  //     if (me.className === "card active") {
-  //       data.map(
-  //         (item) =>
-  //           (me.innerHTML = `<h1>${item.first_name} ${item.last_name}</h1><h3>id:${item.id}</h3><h2>${item.email}</h2><h3>${item.gender}</h3><div class="view"><button class='btn view-btn'>View</button></div>`)
-  //       );
-  //       me.innerHTML = `<h1>${item.first_name} ${item.last_name}</h1><h3>id:${item.id}</h3><h2>${item.email}</h2><h3>${item.gender}</h3><div class="view"><button class='btn view-btn'>View</button></div>`;
-  //     } else {
-  //       data.map(
-  //         (item) =>
-  //           (me.innerHTML = `<h1>${item.first_name} ${item.last_name}</h1><br><h2>${item.email}</h2>`)
-  //       );
-  //     }
-  //   } else {
-  //     console.log(e.target);
-  //   }
-  // });
   cards.push(newCard);
   displayBox.append(newCard);
 });
@@ -159,30 +135,31 @@ displayBox.addEventListener("click", (e) => {
   }
 });
 
-// displayBox.addEventListener("touchend", (e) => {
-//   const me = e.currentTarget;
-//   const meActive = me.getElementsByClassName("card active")[0];
-//   if (e.target.className === "btn back-btn") {
-//     displayBox.innerHTML = "";
-//     cards.forEach((item) => {
-//       resetCard(item);
-//       displayBox.append(item);
-//     });
-//   }
-//   if (e.target.className === "btn view-btn") {
-//     const cardData = data.filter(
-//       (item) => item.id == meActive.getAttribute("id")
-//     )[0];
-//     console.log(cardData);
-//     const { first_name, last_name, id, email, gender } = cardData;
-//     me.innerHTML = `<div class="profile">
-//                 <div><h3>First Name: <h1>${first_name}</h1></h3></div>
-//                 <div><h3>Last Name: <h1>${last_name}</h1></h3></div>
-//                 <div><h3>Gender: <h2>${gender}</h2></h3></div>
-//                 <div><h3>Id: <h2>${id}<h2></h3></div>
-//                 <div><h3>Email: <h2>${email}<h2></h3></div>
-//                 <div><h3>about: <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2></h3>
-//                 <div class="view"><button class='btn back-btn'>Back</button></div>
-//                 </div>`;
-//   }
-// });
+displayBox.addEventListener("touchend", (e) => {
+  const me = e.currentTarget;
+  const meActive = me.getElementsByClassName("card active")[0];
+  if (e.target.className === "btn back-btn") {
+    displayBox.innerHTML = "";
+    cards.forEach((item) => {
+      resetCard(item);
+      displayBox.append(item);
+    });
+  }
+  if (e.target.className === "btn view-btn") {
+    const cardData = data.filter(
+      (item) => item.id == meActive.getAttribute("id")
+    )[0];
+    console.log(cardData);
+    const { first_name, last_name, id, email, gender } = cardData;
+    me.innerHTML = `<div class="profile">
+                <div><h3>First Name: <h1>${first_name}</h1></h3></div>
+                <div><h3>Last Name: <h1>${last_name}</h1></h3></div>
+                <div><h3>Gender: <h2>${gender}</h2></h3></div>
+                <div><h3>Id: <h2>${id}<h2></h3></div>
+                <div><h3>Email: <h2>${email}<h2></h3></div>
+                <div><h3>about: <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2></h3>
+                <div class="view"><button class='btn back-btn'>Back</button></div>
+                </div>`;
+  }
+});
+
