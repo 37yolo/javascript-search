@@ -67,30 +67,6 @@ function expandCard(target) {
   me.innerHTML = `<h1>${card.first_name} ${card.last_name}</h1><h3>id:${card.id}</h3><h2>${card.email}</h2><h3>${card.gender}</h3><div class="view"><button class='btn view-btn'>View</button></div>`;
 }
 
-function bigCard(target) {
-  const me = target;
-  const cardData = data.filter(
-    (item) =>
-      item.id == me.getElementsByClassName("card active")[0].getAttribute("id")
-  );
-  const { first_name, last_name, id, email, gender } = cardData;
-  me.innerHTML = `<div class="profile">
-                <h3>First Name:</h3>
-                <h1>${first_name}</h1>
-                <h3>Last Name:</h3>
-                <h1>${last_name}</h1>
-                <h3>Gender</h3>
-                <h2>${gender}</h2>
-                <h3>Id:</h3>
-                <h2>${id}</h2>
-                <h3>Email:</h3>
-                <h2>${email}</h2>
-                <h3>about:</h3>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2>
-                <div class="view"><button class='btn back-btn'>Back</button></div>
-                </div>`;
-}
-
 searchBox.addEventListener("input", search);
 
 cards.forEach((item) => {
