@@ -121,7 +121,6 @@ displayBox.addEventListener("click", (e) => {
     const cardData = data.filter(
       (item) => item.id == meActive.getAttribute("id")
     )[0];
-    console.log(cardData);
     const { first_name, last_name, id, email, gender } = cardData;
     me.innerHTML = `<div class="profile">
                 <div><h3>First Name: <h1>${first_name}</h1></h3></div>
@@ -149,7 +148,6 @@ displayBox.addEventListener("touchend", (e) => {
     const cardData = data.filter(
       (item) => item.id == meActive.getAttribute("id")
     )[0];
-    console.log(cardData);
     const { first_name, last_name, id, email, gender } = cardData;
     me.innerHTML = `<div class="profile">
                 <div><h3>First Name: <h1>${first_name}</h1></h3></div>
